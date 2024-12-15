@@ -1,18 +1,20 @@
-import { projectController } from "./projectController";
-
 export const overviewController = (function(){
     const allProjects = [];
+    
+    const getAllProjects = function(){
+        return allProjects;
+    }
 
-    const addProject = function(name){
-        allProjects.push(projectController.createProject(name));
+    const addProject = function(projectObj){
+        allProjects.push(projectObj);
     }
 
     const removeProject = function(index){
-        allProjects[index] = undefined;
+        allProjects.splice(index,1);
     }
 
     const returnProject = function(index){
         return allProjects[index];
     }
-    return {addProject,removeProject,returnProject}
+    return {getAllProjects,addProject,removeProject,returnProject}
 })()
