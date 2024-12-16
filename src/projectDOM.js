@@ -8,6 +8,7 @@ export const projectDOMController = (function(){
    const deleteProjectDOM = function(projectDOM,index){
     projectDOM.remove();
     overviewController.removeProject(index);
+    localStorage.setItem("allProjects", JSON.stringify(overviewController.getAllProjects())); // Save data to localStorage
    }
 
    const createProjectDOM = function(projectObj) {
@@ -64,7 +65,7 @@ export const projectDOMController = (function(){
             })
         })
  
-
+        localStorage.setItem("allProjects", JSON.stringify(overviewController.getAllProjects())); // Save data to localStorage
         return projectDOM;
     }
     

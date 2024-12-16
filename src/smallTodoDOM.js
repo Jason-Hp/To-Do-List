@@ -31,7 +31,7 @@ export const smallTodoDOMController = (function() {
         projectObj.todoList.sort((a, b) => compareAsc(a.due, b.due));
   
         fromArrayToDom(projectObj,projectDOM);
-
+        localStorage.setItem("allProjects", JSON.stringify(overviewController.getAllProjects())); // Save data to localStorage
 
     }
     const fromArrayToDom = function(projectObj,projectDOM){
@@ -62,7 +62,7 @@ export const smallTodoDOMController = (function() {
         }else{
             li.style.backgroundColor = priorityColor(priority);
         }
-        
+
         let titleDOM = document.createElement("p");
         let descDOM = document.createElement("p");
         let dueDOM = document.createElement("p");
