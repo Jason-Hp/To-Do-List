@@ -11,7 +11,8 @@ export const projectController = (function(){
         projectObj.todoList.push(todoObj);
     }
 
-    const removeTodo = function(projectObj,index){
+    const removeTodo = function(projectObj,todoObj){
+        const index = projectObj.todoList.findIndex(item => item == todoObj);
         projectObj.todoList.splice(index,1);
     }
 

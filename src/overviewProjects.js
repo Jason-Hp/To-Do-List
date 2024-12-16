@@ -1,10 +1,13 @@
 export const overviewController = (function(){
-    const allProjects = [];
+    let allProjects = [];
     
     const getAllProjects = function(){
         return allProjects;
     }
 
+    const setAllProjects = function(allP){
+        allProjects = allP;
+    }
     const addProject = function(projectObj){
         allProjects.push(projectObj);
     }
@@ -16,5 +19,5 @@ export const overviewController = (function(){
     const returnProject = function(index){
         return allProjects[index];
     }
-    return {getAllProjects,addProject,removeProject,returnProject}
+    return {getAllProjects, setAllProjects, addProject,removeProject,returnProject}
 })()

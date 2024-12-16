@@ -4,13 +4,13 @@ class Todo{
         this.desc = desc;
         this.due = due;
         this.priority = priority;
-        this.completed = "☐";
+        this.completed = false;
     }
 }
 
 export const todoController = (function(){
     const complete = function(todoObj){
-        todoObj.completed = "✅";
+        todoObj.completed = true;
     }
 
     const changePriority = function(todoObj,newPrio){
@@ -22,3 +22,4 @@ export const todoController = (function(){
     }
     return { complete, changePriority, createTodo}
 })()
+

@@ -1,0 +1,49 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>To-Do List</title><style>.container > div{
+            margin-bottom: 15px;
+        }
+        .header{
+            display: flex;
+            flex-direction: column;
+            align-content: center;
+            justify-content: center;
+            border-bottom: 1px solid grey;
+            box-shadow: 3px 3px 10px lightgrey;
+        }
+        .header p{
+            font-size: 50px;
+            text-align: center;
+            margin:10px
+        }
+        .button{
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        .button input{
+            padding:10px;
+            border-radius: 10px;
+        }
+        button{
+            width: 70px;
+            height: 60px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .projects-container{
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+            gap: 20px;
+        }
+        .projects-container div{
+            border: 1px solid black;
+        }
+        label{
+            display: block;
+            margin-bottom: 5px;
+        }</style><script>//small script to dynamically update the minimum date so that users dont select a date that has already passed
+        document.addEventListener("DOMContentLoaded", () => {
+            
+            const today = new Date().toISOString().split('T')[0];
+   
+            document.querySelector('#due').setAttribute('min', today);
+  });</script><script defer="defer" src="main.js"></script></head><body><div class="container"><div class="header"><p>To-Do List</p></div><div class="button"><button>Add Project</button> <input id="projectName" placeholder="Please enter project's name"></div><div style="display: flex; justify-content: space-between; gap:20px;"><div class="projects-container" style="flex-grow: 1;"></div><div class="form" style="display: none;"><form><p><label for="title">Title</label> <input name="title" id="title" required></p><p><label for="desc">Short Description</label> <input name="desc" id="desc" required></p><p><label for="due">Due Date</label> <input type="date" name="due" id="due" required></p><p><label for="priority">Priority</label> <select id="priority" name="priority" required><option value="High">High</option><option value="Medium" selected="selected">Medium</option><option value="Low">Low</option></select></p><button id="form">Add To-Do</button></form></div></div></div></body></html>
