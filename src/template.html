@@ -4,59 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do List</title>
-    <style>
-        .container > div{
-            margin-bottom: 15px;
-        }
-        .header{
-            display: flex;
-            flex-direction: column;
-            align-content: center;
-            justify-content: center;
-            border-bottom: 1px solid grey;
-            box-shadow: 3px 3px 10px lightgrey;
-        }
-        .header p{
-            font-size: 50px;
-            text-align: center;
-            margin:10px
-        }
-        .button{
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-        }
-        .button input{
-            padding:10px;
-            border-radius: 10px;
-        }
-        button{
-            width: 70px;
-            height: 60px;
-            border-radius: 10px;
-            text-align: center;
-        }
-        .projects-container{
-            display: grid;
-            grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
-            gap: 20px;
-        }
-        .projects-container div{
-            border: 1px solid black;
-        }
-        label{
-            display: block;
-            margin-bottom: 5px;
-        }
-    </style>
     <script>
         //small script to dynamically update the minimum date so that users dont select a date that has already passed
+
         document.addEventListener("DOMContentLoaded", () => {
+            const today = new Date();
+        
+            const year = today.getFullYear();
+            const month = String(today.getMonth() + 1).padStart(2, '0'); 
+            const day = String(today.getDate()).padStart(2, '0'); 
+
+            const localDate = `${year}-${month}-${day}`;
             
-            const today = new Date().toISOString().split('T')[0];
-   
-            document.querySelector('#due').setAttribute('min', today);
-  });
+            document.querySelector("#due").setAttribute("min", localDate);
+            document.querySelector("#due").setAttribute("value",localDate);
+        });
       </script>
 </head>
 <body>
@@ -65,7 +27,7 @@
             <p> To-Do List  </p>
         </div>
         <div class="button">
-            <button> Add Project</button>
+            <button> ➕ </button>
             <input type="text" id="projectName" placeholder="Please enter project's name">
         </div>
         <div style="display: flex; justify-content: space-between; gap:20px;">
@@ -80,7 +42,7 @@
                     </p>
                     <p>
                         <label for="desc">Short Description</label>
-                        <input type="text" name="desc" id="desc" required>
+                        <textarea id="desc" ></textarea>
                     </p>
                     <p>
                         <label for="due">Due Date</label>
@@ -94,7 +56,7 @@
                             <option value="Low">Low</option>
                           </select>
                     </p>
-                    <button id="form">Add To-Do</button>
+                    <button id="form">ADD</button>
                 </form>
             </div>
         </div>

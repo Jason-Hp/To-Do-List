@@ -2,6 +2,7 @@ import './initializer.js';
 import { overviewController } from './overviewProjects.js';
 import { projectDOMController } from './projectDOM.js';
 import { smallTodoDOMController } from './smallTodoDOM.js';
+import "./style.css"
 
 window.addEventListener("beforeunload", async () => {
 

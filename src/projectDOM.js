@@ -52,8 +52,10 @@ export const projectDOMController = (function(){
         projectDOM.appendChild(createTodoButton);
     
         createTodoButton.addEventListener("click", () => {
+            let actualForm = form.querySelector("form");
+            actualForm.reset();
             form.style.display = "block";
-    
+       
             const submit = document.querySelector("#form");
             const clonedSubmit = submit.cloneNode(true); 
             submit.parentNode.replaceChild(clonedSubmit, submit);
@@ -61,6 +63,9 @@ export const projectDOMController = (function(){
             clonedSubmit.addEventListener("click", (e) => {
                 e.preventDefault();
                 smallTodoDOMController.createSmallTodoDOM(projectDOM, index);
+
+                actualForm.reset();
+
                 form.style.display = "none"; 
             })
         })

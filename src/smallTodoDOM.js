@@ -41,7 +41,7 @@ export const smallTodoDOMController = (function() {
         projectObj.todoList.forEach(element => {
             let title = element.title;
             let desc = element.desc;
-            let due = element.due;
+            let due = new Date(element.due);
             let priority = element.priority;
 
             //Format date-> How many days to go till deadline
@@ -77,7 +77,7 @@ export const smallTodoDOMController = (function() {
         li.appendChild(dueDOM);
 
         const delButton = document.createElement("button");
-        delButton.textContent = "Del";
+        delButton.textContent = "❌";
         li.appendChild(delButton);
 
         delButton.addEventListener("click", (e) => {
@@ -88,7 +88,7 @@ export const smallTodoDOMController = (function() {
         list.appendChild(li);
 
         const checkButton = document.createElement("button");
-        checkButton.textContent = "Complete";
+        checkButton.textContent = "✅";
         li.appendChild(checkButton)
 
         checkButton.addEventListener("click",()=>{
