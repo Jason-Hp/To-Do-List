@@ -46,6 +46,7 @@ export const smallTodoDOMController = (function() {
 
             //Format date-> How many days to go till deadline
             const today = new Date();
+            due.setHours(0, 0, 0, 0);  
             let dueInDistance = formatDistance(due, today, { addSuffix: true });
 
             addTodoToDOM(projectDOM, title, desc, dueInDistance, priority, projectObj, element);
